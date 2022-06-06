@@ -26,7 +26,20 @@ public class Course {
         return Collections.unmodifiableList(this.lessons); //read only
     }
 
-    public void addLesson(Lesson lesson){
-        this.getLessons().add(lesson);
+    public void addLesson(Lesson lesson) {
+        this.lessons.add(lesson);
+    }
+
+    public int getTotalTime() {
+        return this.lessons.stream().mapToInt(Lesson::getTime).sum();
+    }
+
+    @Override
+    public String toString() {
+        return "Course { " +
+                "Name = '" + name + '\'' +
+                ", Teacher = '" + teacher + '\'' +
+                ", Total time = " + this.getTotalTime() +
+                " min. }";
     }
 }
