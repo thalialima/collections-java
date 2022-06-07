@@ -1,13 +1,12 @@
 package br.com.collections;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Course {
     private String name;
     private String teacher;
     private List<Lesson> lessons = new ArrayList<>();
+    private Set<Student> students = new HashSet<>();
 
     public Course(String name, String teacher) {
         this.name = name;
@@ -32,6 +31,14 @@ public class Course {
 
     public int getTotalTime() {
         return this.lessons.stream().mapToInt(Lesson::getTime).sum();
+    }
+
+    public boolean registrateStudent(Student student){
+        return this.students.add(student);
+    }
+
+    public Set<Student> getStudents() {
+        return Collections.unmodifiableSet(students); //this collection can't be updated
     }
 
     @Override
