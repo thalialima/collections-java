@@ -8,6 +8,8 @@ public class Course {
     private List<Lesson> lessons = new ArrayList<>();
     private Set<Student> students = new LinkedHashSet<>();
 
+    private Map<Integer, Student> registration = new HashMap<>();
+
     public Course(String name, String teacher) {
         this.name = name;
         this.teacher = teacher;
@@ -33,7 +35,8 @@ public class Course {
         return this.lessons.stream().mapToInt(Lesson::getTime).sum();
     }
 
-    public boolean registrateStudent(Student student){
+    public boolean registrateStudent(Student student) {
+        this.registration.put(student.getId(), student);
         return this.students.add(student);
     }
 
@@ -41,8 +44,12 @@ public class Course {
         return Collections.unmodifiableSet(students); //this collection can't be updated
     }
 
-    public boolean isRegistred(Student student){
+    public boolean isRegistred(Student student) {
         return this.students.contains(student);
+    }
+
+    public Student searchStudent(int id){
+        return this.registration.get(id);
     }
 
     @Override
