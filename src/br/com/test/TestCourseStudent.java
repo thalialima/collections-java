@@ -19,6 +19,7 @@ public class TestCourseStudent {
         Student student1 = new Student("Melissa", 1212);
         Student student2 = new Student("Júlia", 4545);
         Student student3 = new Student("Alice", 7878);
+        Student student4 = new Student("Alice", 7979);
 
         course1.registrateStudent(student1);
         course1.registrateStudent(student2);
@@ -35,7 +36,17 @@ public class TestCourseStudent {
         System.out.println("All students from this course, updated: ");
         System.out.println(course1.getStudents());
 
-        course1.getStudents().add(new Student("Pedro", 4545));
+        //course1.getStudents().add(new Student("Pedro", 4545));
+
+        System.out.println("Is registred?");
+        boolean registred = course1.isRegistred(student4);
+        System.out.println(registred);
+
+
+        System.out.println("Are iquals?");
+        boolean equals = student3.equals(student4);
+        System.out.println(equals);
+
 
 
     }

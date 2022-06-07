@@ -41,6 +41,10 @@ public class Course {
         return Collections.unmodifiableSet(students); //this collection can't be updated
     }
 
+    public boolean isRegistred(Student student){
+        return this.students.contains(student);
+    }
+
     @Override
     public String toString() {
         return "Course { " +
