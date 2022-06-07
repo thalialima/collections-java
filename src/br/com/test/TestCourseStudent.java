@@ -4,6 +4,8 @@ import br.com.collections.Course;
 import br.com.collections.Lesson;
 import br.com.collections.Student;
 
+import java.util.Iterator;
+
 public class TestCourseStudent {
     public static void main(String[] args) {
         Course course1 = new Course("Collections", "Paulo");
@@ -25,10 +27,16 @@ public class TestCourseStudent {
         course1.registrateStudent(student2);
         course1.registrateStudent(student3);
 
-        System.out.println("All students from this course: ");
-        course1.getStudents().forEach(s -> {
-            System.out.println(s.toString());
-        });
+//        System.out.println("All students from this course: ");
+//        course1.getStudents().forEach(s -> {
+//            System.out.println(s.toString());
+//        });
+
+        System.out.println("Imprimindo com iterator:");
+        Iterator<Student> iterator = course1.getStudents().iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
 
         course1.registrateStudent(new Student("Victor", 9696));
         course1.registrateStudent(new Student("Ana", 3636));

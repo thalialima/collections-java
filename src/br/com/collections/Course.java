@@ -6,7 +6,7 @@ public class Course {
     private String name;
     private String teacher;
     private List<Lesson> lessons = new ArrayList<>();
-    private Set<Student> students = new HashSet<>();
+    private Set<Student> students = new LinkedHashSet<>();
 
     public Course(String name, String teacher) {
         this.name = name;
